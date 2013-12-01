@@ -9,7 +9,7 @@
  * By @maxlynch, @helloimben, @adamdbradley <3
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
- * 
+ *
  */
 ;
 /**
@@ -42,7 +42,7 @@ angular.module('ionic.ui', [
 angular.module('ionic', [
     'ionic.service',
     'ionic.ui',
-    
+
     // Angular deps
     'ngAnimate',
     'ngRoute',
@@ -59,7 +59,7 @@ angular.module('ionic.service.actionSheet', ['ionic.service.templateLoad', 'ioni
     /**
      * Load an action sheet with the given template string.
      *
-     * A new isolated scope will be created for the 
+     * A new isolated scope will be created for the
      * action sheet and the new element will be appended into the body.
      *
      * @param {object} opts the options for this ActionSheet (see docs)
@@ -82,7 +82,7 @@ angular.module('ionic.service.actionSheet', ['ionic.service.templateLoad', 'ioni
             opts.cancel();
           }
         });
-        
+
         $animate.removeClass(element, 'active', function() {
           scope.$destroy();
         });
@@ -143,7 +143,7 @@ angular.module('ionic.service.loading', ['ionic.ui.loading'])
     /**
      * Load an action sheet with the given template string.
      *
-     * A new isolated scope will be created for the 
+     * A new isolated scope will be created for the
      * action sheet and the new element will be appended into the body.
      *
      * @param {object} opts the options for this ActionSheet (see docs)
@@ -252,7 +252,7 @@ angular.module('ionic.service.modal', ['ionic.service.templateLoad', 'ngAnimate'
     /**
      * Load a modal with the given template string.
      *
-     * A new isolated scope will be created for the 
+     * A new isolated scope will be created for the
      * modal and the new element will be appended into the body.
      */
     fromTemplate: function(templateString, options) {
@@ -585,7 +585,7 @@ angular.module('ionic.ui.checkbox', [])
     scope: {},
     transclude: true,
     template: '<label ng-click="tapHandler($event)" class="checkbox"><input type="checkbox"><div ng-transclude></div></label>',
-  
+
 
     link: function($scope, $element, $attr, ngModel) {
       var checkbox;
@@ -656,11 +656,11 @@ angular.module('ionic.ui.content', [])
     },
     compile: function(element, attr, transclude) {
       return function($scope, $element, $attr) {
-        var 
+        var
         c = $element.eq(0),
         scroll = $element[0].querySelector('.scroll'),
         clone,
-        sc, 
+        sc,
         sv;
 
         if(scroll && attr.padding == "true") {
@@ -716,7 +716,7 @@ angular.module('ionic.ui.content', [])
               $scope.$parent.$broadcast('scroll.onRefreshOpening', amt);
             }
           });
-          // Let child scopes access this 
+          // Let child scopes access this
           $scope.scrollView = sv;
 
           // Pass the parent scope down to the child
@@ -998,7 +998,7 @@ angular.module('ionic.ui.loading', [])
     link: function($scope, $element){
       $element.addClass($scope.animation || '');
     },
-    template: '<div class="loading-backdrop" ng-class="{enabled: showBackdrop}">' + 
+    template: '<div class="loading-backdrop" ng-class="{enabled: showBackdrop}">' +
                 '<div class="loading" ng-transclude>' +
                 '</div>' +
               '</div>'
@@ -1016,7 +1016,7 @@ angular.module('ionic.ui.loading', [])
 
 /**
  * @description
- * The NavController is a navigation stack View Controller modelled off of 
+ * The NavController is a navigation stack View Controller modelled off of
  * UINavigationController from Cocoa Touch. With the Nav Controller, you can
  * "push" new "pages" on to the navigation stack, and then pop them off to go
  * back. The NavController controls a navigation bar with a back button and title
@@ -1224,9 +1224,9 @@ angular.module('ionic.ui.nav', ['ionic.service.templateLoad', 'ionic.service.ges
       backButtonIcon: '@',
       alignTitle: '@'
     },
-    template: '<header class="bar bar-header nav-bar" ng-class="{hidden: !navController.navBar.isVisible}">' + 
+    template: '<header class="bar bar-header nav-bar" ng-class="{hidden: !navController.navBar.isVisible}">' +
         '<button ng-click="goBack()" class="button" ng-if="navController.controllers.length > 1" ng-class="backButtonType" ng-bind-html="backButtonContent"></button>' +
-        '<h1 class="title">{{navController.getTopController().scope.title}}</h1>' + 
+        '<h1 class="title">{{navController.getTopController().scope.title}}</h1>' +
       '</header>',
     link: function($scope, $element, $attr, navCtrl) {
       var backButton;
@@ -1298,7 +1298,7 @@ angular.module('ionic.ui.nav', ['ionic.service.templateLoad', 'ionic.service.ges
           childElement.remove();
         }
       });
-    
+
       // Push this controller onto the stack
       navCtrl.pushController($scope, $element);
     }
@@ -1366,7 +1366,7 @@ angular.module('ionic.ui.nav', ['ionic.service.templateLoad', 'ionic.service.ges
 
 /**
  * @description
- * The NavController is a navigation stack View Controller modelled off of 
+ * The NavController is a navigation stack View Controller modelled off of
  * UINavigationController from Cocoa Touch. With the Nav Controller, you can
  * "push" new "pages" on to the navigation stack, and then pop them off to go
  * back. The NavController controls a navigation bar with a back button and title
@@ -1457,7 +1457,7 @@ angular.module('ionic.ui.navRouter', ['ionic.service.gesture'])
         if(isFirst && $location.path() !== '/') {
           isFirst = false;
         }
-      });  
+      });
 
 
       // Keep track of location changes and update a stack pointer that tracks whether we are
@@ -1480,7 +1480,7 @@ angular.module('ionic.ui.navRouter', ['ionic.service.gesture'])
             //forward button
             $rootScope.stackCursorPosition++;
           }
-           
+
           $scope.direction = 'forwards';
 
         } else {
@@ -1547,14 +1547,14 @@ angular.module('ionic.ui.navRouter', ['ionic.service.gesture'])
       backButtonIcon: '@',
       alignTitle: '@',
     },
-    template: '<header class="bar bar-header nav-bar" ng-class="{hidden: !navController.navBar.isVisible}">' + 
+    template: '<header class="bar bar-header nav-bar" ng-class="{hidden: !navController.navBar.isVisible}">' +
         '<div class="buttons"> ' +
           '<button nav-back class="button" ng-if="enableBackButton && showBackButton" ng-class="backButtonType" ng-bind-html="backButtonContent"></button>' +
-          '<button ng-click="button.tap($event)" ng-repeat="button in leftButtons" class="button {{button.type}}" ng-bind="button.text"></button>' + 
+          '<button ng-click="button.tap($event)" ng-repeat="button in leftButtons" class="button {{button.type}}" ng-bind="button.text"></button>' +
         '</div>' +
-        '<h1 class="title" ng-bind="currentTitle"></h1>' + 
+        '<h1 class="title" ng-bind="currentTitle"></h1>' +
         '<div class="buttons"> ' +
-          '<button ng-click="button.tap($event)" ng-repeat="button in rightButtons" class="button {{button.type}}" ng-bind="button.text"></button>' + 
+          '<button ng-click="button.tap($event)" ng-repeat="button in rightButtons" class="button {{button.type}}" ng-bind="button.text"></button>' +
         '</div>' +
       '</header>',
     link: function($scope, $element, $attr, navCtrl) {
@@ -2175,7 +2175,7 @@ angular.module('ionic.ui.tabs', ['ngAnimate'])
         });
 
         tabsCtrl.add($scope);
-        
+
         $scope.$watch('isVisible', function(value) {
           if(childElement) {
             $animate.leave(childElement);
@@ -2222,8 +2222,8 @@ angular.module('ionic.ui.tabs', ['ngAnimate'])
     transclude: true,
     replace: true,
     scope: true,
-    template: '<div class="tabs">' + 
-      '<tab-controller-item title="{{controller.title}}" icon="{{controller.icon}}" icon-on="{{controller.iconOn}}" icon-off="{{controller.iconOff}}" active="controller.isVisible" index="$index" ng-repeat="controller in controllers"></tab-controller-item>' + 
+    template: '<div class="tabs">' +
+      '<tab-controller-item title="{{controller.title}}" icon="{{controller.icon}}" icon-on="{{controller.iconOn}}" icon-off="{{controller.iconOff}}" active="controller.isVisible" index="$index" ng-repeat="controller in controllers"></tab-controller-item>' +
     '</div>',
     link: function($scope, $element, $attr, tabsCtrl) {
       $element.addClass($scope.tabsType);
@@ -2254,7 +2254,7 @@ angular.module('ionic.ui.tabs', ['ngAnimate'])
         tabsCtrl.select(scope.index);
       };
     },
-    template: 
+    template:
       '<a ng-class="{active:active}" ng-click="selectTab()" class="tab-item">' +
         '<i class="{{icon}}" ng-if="icon"></i>' +
         '<i class="{{iconOn}}" ng-if="active"></i>' +
@@ -2268,7 +2268,7 @@ angular.module('ionic.ui.tabs', ['ngAnimate'])
     restrict: 'E',
     replace: true,
     transclude: true,
-    template: '<div class="tabs tabs-primary" ng-transclude>' + 
+    template: '<div class="tabs tabs-primary" ng-transclude>' +
     '</div>'
   }
 });
@@ -2299,7 +2299,7 @@ angular.module('ionic.ui.toggle', [])
 
       if(!checkbox.length || !handle.length) { return; }
 
-      $scope.toggle = new ionic.views.Toggle({ 
+      $scope.toggle = new ionic.views.Toggle({
         el: $element[0],
         checkbox: checkbox[0],
         handle: handle[0]
