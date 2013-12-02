@@ -2,6 +2,8 @@
 
 ionic-rails wraps the [Ionic Framework](http://ionicframework.com/) library for use in Rails 4 and above. Assets will minify automatically during production.
 
+    Note: This may not be a great idea at this point as Max Lynch points out the Ionic Framework doesn't have great cross-browser support. The goal of that project is to build packages that are wrapped for native device deployment. Because you aren't going to package up your backend rails implementation this isn't a good idea. If you want to use Rails with Ionic it's best to build your api and use a straight up implementation of Ionic.
+
 ## Usage
 
 Add the following to your Gemfile:
