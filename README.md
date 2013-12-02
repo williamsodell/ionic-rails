@@ -1,6 +1,6 @@
 # ionic-rails
 
-ionic-rails wraps the [Ionic Framework](http://ionicframework.com/) library for use in Rails 3.1 and above. Assets will minify automatically during production.
+ionic-rails wraps the [Ionic Framework](http://ionicframework.com/) library for use in Rails 4 and above. Assets will minify automatically during production.
 
 ## Usage
 
